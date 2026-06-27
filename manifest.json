@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "Send to GPTs",
+  "version": "1.0.0",
+  "description": "選択したテキストを右クリックメニューからChatGPTのGPTsへ送信します",
+  "permissions": ["contextMenus", "storage", "tabs"],
+  "host_permissions": ["https://chatgpt.com/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://chatgpt.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  }
+}

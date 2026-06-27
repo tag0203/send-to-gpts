@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Send to GPTs - 設定</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <main>
+    <h1>Send to GPTs</h1>
+    <p class="lead">右クリックメニューに表示する送信先GPTを登録します。</p>
+
+    <section class="hint" aria-labelledby="url-help">
+      <h2 id="url-help">GPT URLの確認方法</h2>
+      <p>ChatGPTで対象のGPTを開き、アドレスバーのURLをコピーしてください。</p>
+      <code>https://chatgpt.com/g/g-xxxxxxxx-example</code>
+      <p>URL全体の代わりに <code>g-xxxxxxxx</code> 形式のIDも入力できます。</p>
+    </section>
+
+    <section aria-labelledby="registered-heading">
+      <h2 id="registered-heading">登録済みGPT</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>表示名</th><th>URL</th><th><span class="visually-hidden">操作</span></th></tr>
+          </thead>
+          <tbody id="gpt-list"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section aria-labelledby="add-heading">
+      <h2 id="add-heading">新規追加</h2>
+      <form id="add-form">
+        <label>
+          表示名
+          <input type="text" id="new-name" placeholder="例：文章校正GPT" required>
+        </label>
+        <label>
+          GPT URL または ID
+          <input type="text" id="new-url" placeholder="https://chatgpt.com/g/g-..." required>
+        </label>
+        <button type="submit" class="primary">追加</button>
+      </form>
+      <p id="form-error" class="error" role="alert"></p>
+    </section>
+
+    <div class="actions">
+      <button type="button" id="save-btn" class="save">保存</button>
+      <span id="save-message" class="save-message" role="status"></span>
+    </div>
+  </main>
+  <script src="options.js"></script>
+</body>
+</html>
